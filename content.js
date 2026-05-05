@@ -1,9 +1,16 @@
-console.log("rodou");
-
-function injectCSS() {
+(function injectCSS() {
     const style = document.createElement("style");
     style.textContent = `
-        html, body {
+        #page {
+            padding: 0 !important;
+        }
+        #page-header {
+            border-radius: 8px 8px 0 0 !important;
+        }
+        #page-content {
+            border-radius: 0 0 8px 8px !important;
+        }
+        html, body, .login-container, .drag-container, .drag-container * {
             background-color: oklch(0.18 0.02 240) !important;
             color: oklch(0.92 0.02 240) !important;
         }
@@ -22,6 +29,7 @@ function injectCSS() {
         #page,
         #topofscroll,
         nav,
+        .navbar,
         #usernavigation,
         #user-action-menu {
             background-color: oklch(0.22 0.02 240) !important;
@@ -32,11 +40,23 @@ function injectCSS() {
             color: oklch(0.92 0.02 240) !important;
             border: 1px solid oklch(0.32 0.02 240) !important;
         }
-        .categoryname {
+        .categoryname,
+        .navbar-light {
             color: oklch(0.92 0.02 240) !important;
+        }
+        .secondary-navigation {
+            display: flex !important;
+            justify-content: center !important;
+        }
+        .activity-icon, .activityicon {
+            background: transparent !important;
+        }
+        .moremenu {
+            width: fit-content !important;
+            padding: 0 !important;
+            display: flex !important;
+            justify-content: center;
         }
     `;
     document.head.appendChild(style);
-};
-
-injectCSS();
+})()
